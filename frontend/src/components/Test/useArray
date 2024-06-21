@@ -1,0 +1,28 @@
+import React, { useState, createContext, useContext, useEffect } from "react";
+
+type UseArrayActions<T> = {
+    push: (item: T) => void,
+    removeByIndex: (index: number) => void
+  }
+
+export default function useArray<T>(initialValue: T[]): { value: T[] } & UseArrayActions<T> {
+    const [state, setState] = useState(initialValue)
+
+    function push(value: T){
+        setState((prev: T[]) => [...prev, value])
+      }
+
+    function removeByIndex(index:number){
+        setState((prev: T[]) => {
+            //React state update should be immutable, as it performs a shallow comparison to determine if it needs to re-render the component.
+            //By mutating an existing array, it would directly modify the original array, leading to missed re-renders
+            const newState = [...prev] 
+            newState.splice(index,1)
+            return newState
+        })
+    }
+    
+    return {value: state, push, removeByIndex }
+
+  }
+

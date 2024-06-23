@@ -1,0 +1,48 @@
+version: "3.7"
+services:
+  mysql:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_DATABASE: "test_db"
+      MYSQL_PASSWORD: "{{}}"
+    ports:
+      - "3306:3306"
+    volumes:
+      - db-data:/var/lib/mysql/data:cached
+
+  backend:
+    build:
+      context: backend
+      dockerfile: Dockerfile
+    command: python app/main.py
+    tty: true
+    volumes:
+      - ./backend:/app/:cached
+      - ./.docker/.ipython:/root/.ipython:cached
+    environment:
+      PYTHONPATH: .
+      DATABASE_URL: "mysql+pymysql://root:{{}}@127.0.0.1:3306/test_db"
+    ports:
+      - 8000:8000
+    depends_on:
+      - "mysql"
+
+  frontend:
+    build:
+      context: frontend
+      dockerfile: Dockerfile
+    stdin_open: true
+    volumes:
+      - "./frontend:/app:cached"
+      - "./frontend/node_modules:/app/node_modules:cached"
+    environment:
+      - NODE_ENV=development
+    ports:
+      - 3000:3000
+    networks:
+      network:
+        ipv4_address: 172.19.0.4
+
+volumes:
+  db-data:

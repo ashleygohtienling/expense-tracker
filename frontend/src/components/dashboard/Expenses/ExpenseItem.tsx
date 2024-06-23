@@ -1,8 +1,9 @@
 import "./ExpenseItem.css";
 import ExpenseDate from "./ExpenseDate";
-import Card from "../UI/Card";
+import Card from "../../UI/Card";
+import React from "react";
 
-function ExpenseItem(props) {
+function ExpenseItem(props: any) {
   return (
     <Card className="expense-item">
       <ExpenseDate date={props.item.date} />

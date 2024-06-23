@@ -1,0 +1,43 @@
+.form{
+    max-width: 40rem;
+    margin: 2rem auto;
+}
+
+.form label,
+.form text,
+.form textarea{
+    display: block;
+    width: 100%;
+}
+
+.form input{
+    background-color: #3c3c3c;
+    color: white;
+    border-radius: 5px;
+}
+
+.secondaryRed{
+    background-color: #FF5668;
+    border-color: white !important;
+    font-weight: 600 !important;
+    padding: 10px 20px !important;
+}
+
+.authPage{
+    margin: 150px 0px 0px 200px
+}
+
+.dividingLine{
+    display:flex;
+    flex-direction: row;
+    font-size: 0.875rem;
+    padding: 10px 20px !important;
+}
+
+.dividingLine:before,
+.dividingLine:after{
+    content: "";
+    flex: 1 1;
+    border-bottom: 1px solid #c7d0d9;
+    margin: auto;
+}

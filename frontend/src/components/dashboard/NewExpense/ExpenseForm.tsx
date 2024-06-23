@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import "./ExpenseForm.css";
 
-const ExpenseForm = (props) => {
+const ExpenseForm = (props:any) => {
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredAmount, setEnteredAmount] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
-  const inputChangeHandler = (identifier, value) => {
+  const inputChangeHandler = (identifier: any, value: any) => {
     if (identifier === "title") {
       setEnteredTitle(value);
     } else if (identifier === "date") {
@@ -14,7 +14,7 @@ const ExpenseForm = (props) => {
       setEnteredAmount(value);
     }
   };
-  const submitHandler = (event) => {
+  const submitHandler = (event: any) => {
     event.preventDefault();
 
     const expenseData = {

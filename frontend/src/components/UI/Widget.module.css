@@ -1,0 +1,48 @@
+.widget{
+    position:relative;
+    display:block;
+    border: radius 8px;
+    background: #fff;
+    height: 100%;
+}
+
+.title{
+    margin-top: 0;
+    padding: 24px 32px 0;
+    color: #16365f;
+}
+
+.title{
+    margin-top: 0;
+    padding: 24px 32px 0;
+    color: #16365f;
+}
+
+.widgetAuth{
+    width:448px;
+    box-shadow: 4px 4px 16px 0 rgba(77, 83, 224, 0.2)
+}
+
+.authHeader{
+    font-size: 1.875rem;
+    font-weight: 700;
+}
+
+a{
+    font-size: 0.875rem;
+    font-weight:  400;
+}
+
+.widgetP{
+    padding: 24px 32px;
+}
+
+.authInfo{
+    padding: 18px 21px;
+    border-radius: 0.5rem;
+    background-color: #f7f8fb;
+}
+
+.authInfo p{
+    color: #6b869e;
+}

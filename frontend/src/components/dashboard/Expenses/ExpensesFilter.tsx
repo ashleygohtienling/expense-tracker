@@ -1,9 +1,9 @@
 import React from "react";
 import "./ExpensesFilter.css";
 
-const ExpensesFilter = (props) => {
+const ExpensesFilter = (props:any) => {
   const years = ["2019", "2020", "2021", "2022", "2023"];
-  const dropdownChangeHandler = (event) => {
+  const dropdownChangeHandler = (event: any) => {
     props.onChangeFilter(event.target.value);
   };
 

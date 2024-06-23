@@ -1,7 +1,7 @@
-import Expenses from "./components/Expenses/Expenses";
-import NewExpense from "./components/NewExpense/NewExpense";
-import React, { useState } from "react";
-import Test from "./components/Test/Test";
+import Expenses from "./Expenses/Expenses";
+import NewExpense from "./NewExpense/NewExpense";
+import React, { useState, FC } from "react";
+import Test from "../Test/Test";
 
 let DUMMY_EXPENSES = [
   {
@@ -19,10 +19,10 @@ let DUMMY_EXPENSES = [
   },
 ];
 
-function App() {
+export const ExpenseTracker: FC = () => {
   const [expenses, setExpense] = useState(DUMMY_EXPENSES);
 
-  const addExpenseHandler = (expense) => {
+  const addExpenseHandler = (expense: any) => {
     setExpense((prevExpenses) => {
       return [expense, ...prevExpenses];
     });
@@ -31,9 +31,6 @@ function App() {
     <div>
       <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses items={expenses}> </Expenses>
-      <Test />
     </div>
   );
-}
-
-export default App;
+};
